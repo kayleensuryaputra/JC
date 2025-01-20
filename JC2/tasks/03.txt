@@ -1,0 +1,10 @@
+task 3:
+
+A 2D integer array has 'row' rows and 'col' columns
+Write pseudocode and program code to:
+
+1. Input a search value output the row number and the column number where the element is present
+    or an appropriate message if the element is not present
+
+2. Input a search value and the row number to search for and output the column 
+    number where the element is present or the appropriate message if the element is not present

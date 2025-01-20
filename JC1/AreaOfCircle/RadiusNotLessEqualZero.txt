@@ -1,0 +1,14 @@
+ensure that radius is not less than equal to zero //
+DECLARE Radius: REAL
+DECLARE Area: REAL
+CONSTANT PI <- 3.14
+
+OUTPUT "Enter a radius"
+INPUT Radius
+IF Radius <= 0
+    THEN
+        OUTPUT "Error! Radius value invalid!"
+    ELSE
+        Area <- PI * Radius * Radius
+        OUTPUT "The area of a circle with", Radius, "radius is", Area
+ENDIF

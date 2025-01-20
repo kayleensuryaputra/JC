@@ -1,0 +1,11 @@
+DECLARE  Arr : ARRAY [0:4] OF INTEGER
+DECLARE Temp: INTEGER
+DECLARE Index: INTEGER
+
+FOR Index <- 0 TO 3
+    IF Arr[Index] > Arr[Index + 1]
+        Temp <- Arr[Index]
+        Arr[Index] <- Arr[Index + 1]
+        Arr[Index + 1] <- Temp
+    ENDIF
+NEXT Index

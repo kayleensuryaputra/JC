@@ -1,0 +1,25 @@
+Pseudocode to add two numbers.
+
+DECLARE Number1: INTEGER
+DECLARE Number2: INTEGER
+DECLARE Sum: INTERER
+
+Number1 <- 5
+Number2 <- 6
+
+Sum <- Number1 + Number2
+
+OUTPUT Sum
+---------------------------------------------
+DECLARE Number1:INTEGER
+DECLARE Number2:INTEGER
+DECLARE Sum:INTEGER
+
+OUTPUT "Please enter the first number"
+INPUT Number1
+OUTPUT "Please enter the second number"
+INPUT Number2
+
+Sum <- Number1+Number2
+
+OUTPUT "The sum of", Number1, "and", Number2, "is", Sum

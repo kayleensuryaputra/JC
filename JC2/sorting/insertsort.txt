@@ -1,0 +1,6 @@
+Insertion Sort
+
+1. set i for second array
+2. set j = i - 1
+
+for i in range (i, len(myArr))

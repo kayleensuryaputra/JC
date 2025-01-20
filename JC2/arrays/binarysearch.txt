@@ -1,0 +1,71 @@
+Binary Search - split the array into 2 parts
+
+myArr [5,7,8,9,13,15,17,20] //sorted array in ascending order
+
+1. assign the lowest index & highest index
+ex:
+    low <- 0
+    high <- 7
+
+2. find the middle index of the array
+mid <- INT((low + high)/2) //find the mid index value
+ex:
+    mid <- INT((0+7)/2)
+    mid <- INT(3.5)
+    mid <- 3
+
+3. compare the value of myArr[mid] with search element(SE)
+myArr[mid] = SE
+ex:
+    myArr[mid] = 9
+    SE = 8
+    8 =/ 9
+
+4. find out if SE lies in the lower half or higher half of the array
+IF myArr[mid] > SE THEN 
+//SE is in the lower half of the array
+ex:
+    myArr[mid] > SE
+    9 > 8
+
+5. assign a new value of the high (if lower half) or low (if higher half)
+ex:
+    since myArr[mid] is greater, we assume SE in the lower half. 
+    since we know myArr[mid] =/ SE, we decrement the index.
+    
+    high <- mid - 1
+    low //stay the same
+
+6. repeat the process by splitting the lower half of the original array size until value found
+
+-------------------------------------------------------------------------------------------------------------------
+
+myArr [5,7,8,9,13,15,17,20]
+low <- 0
+high <- LEN(myArr)
+
+INPUT SE
+flag <- FALSE
+
+WHILE Flag <> TRUE OR high = low
+    mid <- INT((low + high)/2)
+
+    IF myArr[mid]<>SE 
+        THEN
+            IF myArr[mid] > SE 
+                THEN
+                    high <- mid - 1
+                ELSE
+                    low <- mid + 1
+            ENDIF
+        ELSE
+            flag <- TRUE
+    ENDIF
+ENDWHILE
+
+IF Flag = TRUE
+    THEN
+        OUTPUT "Value is found"
+    ELSE
+        OUTPUT "Value is not found"
+ENDIF

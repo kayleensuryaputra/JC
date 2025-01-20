@@ -1,0 +1,9 @@
+Write a program to find the area and perimeter of
+1. Circle
+2. Rectangle
+3. Parallelogram
+4. Triangle
+5. Sphere
+
+Your program must have a separate function for the area
+and perimeter of each shape

@@ -1,0 +1,2 @@
+string1 = "shuaib" //only can double quote
+char = 'K' //only single quotes

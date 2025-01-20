@@ -1,0 +1,8 @@
+While Loop is also known as pre-condition Loop
+bc the condition used is tested at the start of the Loop
+The body of the loop is executed as long as logical condition is true
+
+WHILE (logical condition)
+    body of Loop
+ENDWHILE
+

@@ -1,0 +1,5 @@
+PROCEDURE printMyName()
+    OUTPUT "My name is Khan"
+ENDPROCEDURE
+
+CALL printMyName()

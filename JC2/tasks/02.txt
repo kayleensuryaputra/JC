@@ -1,0 +1,6 @@
+Task 02:
+Use a 2D array
+Total value of column of the elements
+Total value of row of the elements
+Highest of the column
+Highest of the row

@@ -1,0 +1,6 @@
+FOR Loop:
+
+FOR Counter <- 1 TO 10
+    OUTPUT "My name is Khan"
+NEXT Counter
+

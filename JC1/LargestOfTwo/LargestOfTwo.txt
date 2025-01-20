@@ -1,0 +1,14 @@
+DECLARE Number1: INTEGER
+DECLARE Number2: INTEGER
+
+OUTPUT "Enter Number 1"
+INPUT Number1
+OUTPUT "Enter Number 2"
+INPUT Number2
+
+IF Number1 > Number2
+    THEN
+        OUTPUT Number1, "is the largest number"
+    ELSE
+        OUTPUT Number2, "is the largest number"
+ENDIF

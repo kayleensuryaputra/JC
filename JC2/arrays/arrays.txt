@@ -1,0 +1,7 @@
+//initialising the array
+
+DECLARE myArr: INTEGER[0:9] OF INTEGER
+FOR Count <- 0 TO 9
+    myArr[Count] <- 0
+NEXT Count
+

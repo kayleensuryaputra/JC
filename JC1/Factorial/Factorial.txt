@@ -1,0 +1,15 @@
+Write as a pseudocode algorithm to calculate the factorial
+of a number using function called fact() which takes as input 
+a number and returns the factorial of that number
+
+FUNCTION fact(Num) RETURNS INTEGER
+    Factorial <- 1
+    FOR Count <- 1 TO Num
+        Factorial <- Factorial * Count
+    NEXT Count
+    RETURN Factorial
+
+OUTPUT "Enter a number: "
+INPUT Num
+TempFactorial <- fact(Num)
+OUTPUT "The factorial is" , TempFactorial

@@ -1,0 +1,64 @@
+Algorithm as pseudocode to input a number between 7(inclusive) and output the corresponding day of the week. 
+Output an error message if the value is outside the range.
+(Assume Sunday is the first day of the week)
+
+DECLARE DayNum: INTEGER
+
+IF DayNum = 1
+    THEN
+        OUTPUT "Day is Sunday"
+    ELSE
+        IF DayNum = 2
+            THEN
+                OUTPUT "Day is Monday"
+            ELSE
+                IF DayNum = 3
+                    THEN            
+                        OUTPUT "Day is Tuesday"
+                    ELSE
+                        IF DayNum = 4
+                            THEN
+                                OUTPUT "Day is Wednesday"
+                            ELSE
+                                IF DayNum = 5
+                                    THEN
+                                        OUTPUT "Day is Thursday"
+                                    ELSE
+                                        IF DayNum = 6
+                                            THEN
+                                                OUTPUT "Day is Friday"
+                                            ELSE
+                                                IF DayNum = 7
+                                                    THEN
+                                                        OUTPUT "Day is Saturday"
+                                                ENDIF
+                                        ENDIF
+                                 ENDIF
+                        ENDIF
+                ENDIF
+        ENDIF
+ENDIF                                        
+
+
+USING CASE STATEMENT
+
+DECLARE DayNum: INTEGER
+OUTPUT "Please enter a value between the numbers 1 to 7"
+INPUT DayNum
+
+CASE DayNum OF 
+    CASE 1: "Sunday"
+    CASE 2: "Monday"
+    CASE 3: "Tuesday"
+    Case 4: "Wednesday"
+    Case 5: "Thursday"
+    Case 6: "Friday"
+    Case 7: "Saturday"
+    OTHERWISE: "Error invalid day number"
+ENDCASE
+
+Algorithm as pseudocode to input a number between 1 and 12 (inclusive) 
+and output the corresponding month of the year
+
+DECLARE MonthNum: INTEGER
+OUTPUT "Please enter a value between 1 to 12"

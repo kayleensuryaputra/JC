@@ -1,0 +1,24 @@
+
+DECLARE Number1:INTEGER
+DECLARE Number2:INTEGER
+DECLARE Sum:INTEGER
+DECLARE Diff: INTEGER
+DECLARE Prod: INTEGER
+DECLARE Quot: REAL
+DECLARE Rem: INTEGER
+DECLARE IntQuot: INTEGER
+
+OUTPUT "Please enter the first number"
+INPUT Number1
+OUTPUT "Please enter the second number"
+INPUT Number2
+
+Sum <- Number1+Number2
+
+OUTPUT "The sum of", Number1, "and", Number2, "is", Sum
+
+Diff <- Number1 - Number2
+Prod <- Number1*Number2
+Quot <- Number1/Number2
+IntQuot <- DIV(Number1/Number2)
+Rem <- MOD(Number1,Number2) 
