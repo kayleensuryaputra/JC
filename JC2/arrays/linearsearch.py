@@ -10,3 +10,5 @@ for i in range(len(myArray)):
         print("Value found")
     else:
         print("Value not found")
+
+#wrong
