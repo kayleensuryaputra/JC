@@ -1,0 +1,27 @@
+
+DECLARE StackArray : INTEGER [0:9] OF INTEGER //pretend already initialise, so no need 
+base <- 0
+top <- -1
+fullstack <- LENGTH(StackArray)
+
+FUNCTION pop() RETURNS INTEGER
+    IF top = -1 
+        THEN
+            OUTPUT "Stack is empty, unable to pop"
+        ELSE
+            popelement <- StackArray[top]
+            top <- top - 1
+            RETURNS popelement
+    ENDIF
+
+PROCEDURE push(pushelement)
+    IF top = fullstack
+        THEN
+            OUTPUT "Stack is full, unable to push element"
+        ELSE
+            top <- top + 1
+            StackArray[top] <- pushelement
+
+INPUT pushelement <- OUTPUT "Input element to be pushed: " 
+CALL push(pushelement)
+CALL pop()
