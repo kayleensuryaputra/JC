@@ -41,8 +41,7 @@ enqueue(5)
 enqueue(3)
 enqueue(2)
 dequeue()
-enqueue(9) #until here correct
-
+enqueue(9) 
 dequeue() 
 dequeue()
 dequeue()
