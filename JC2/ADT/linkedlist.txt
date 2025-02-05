@@ -1,0 +1,13 @@
+
+DECLARE lLData: INTEGER[0,6] OF INTEGER
+DECLARE lLPointer: INTEGER[0,6] OF INTEGER
+
+DECLARE startPointer: INTEGER
+DECLARE heapPointer: INTEGER
+DECLARE i:INTEGER //have to declare i
+
+FOR i <- 0 TO LENGTH(lLPointer)
+    lLPointer[i] <- i + 1
+NEXT i
+
+lLPointer[LENGTH(lLPointer)] <- -1
