@@ -26,6 +26,7 @@ def dequeue():
     if lenofqueue == 0:
         print("Queue is empty")
     else:
+        temp = Queue[Front]
         Queue[Front] = None
         lenofqueue = lenofqueue - 1
         print(Queue)
@@ -33,6 +34,7 @@ def dequeue():
             Front = 0
         else:
             Front = Front + 1
+        return temp
 
 
 enqueue(1)
