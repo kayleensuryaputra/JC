@@ -19,5 +19,9 @@ print(lLPointer)
 print(lLData)
 
 Pointer = 3
-for i in range(0,4):
-    print(lLData(Pointer))
+
+#output the value in ascending order
+i = startPointer
+while i != -1:
+    print(lLData[i])
+    i = lLPointer[i]
