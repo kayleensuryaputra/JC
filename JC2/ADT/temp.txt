@@ -1,0 +1,2 @@
+#Electric Potential: work done in bringing a positive charge from infinity to a point in the sphere?
+#Electric Force: 
