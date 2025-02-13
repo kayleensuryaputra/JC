@@ -6,9 +6,9 @@ file = open("Numbers.txt",'r')
 #r = read, w = write, a = append
 
 #READLINE "Numbers.txt", text -> stores the line read into 'text'
-# text = file.read() #.read() -> reads the entire file
-# text = file.readline() #.readline() -> only one line is being read
-# text = file.readlines() #.readlines() -> *NOT RECOGNISED BY CAMBRIDGE* copied the entire file into an array of string ['1/n', '2/n'] '/n' means enter extra
+text = file.read() #.read() -> reads the entire file
+text = file.readline() #.readline() -> only one line is being read
+text = file.readlines() #.readlines() -> *NOT RECOGNISED BY CAMBRIDGE* copied the entire file into an array of string ['1/n', '2/n'] '/n' means enter extra
 
 #HOW TO REMOVE WHITE SPACES IN A STRING
 # name = "     Kay   "
