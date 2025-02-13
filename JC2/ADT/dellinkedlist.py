@@ -37,7 +37,7 @@ def delFromLList(SE):
         print(f"Old Heap Pointer:", oldHeap)
 
              
-searchElement = int(input("Input a number to be searched:"))
+searchElement = int(input("Input a number to be deleted:"))
 SE = searchele(searchElement)
 delFromLList(SE)
 

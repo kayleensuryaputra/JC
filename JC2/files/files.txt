@@ -1,0 +1,4 @@
+#PSEUDOCODE
+#OPENFILE "Numbers.txt" FOR READ/WRITE/APPEND
+#Read : file needs to exist
+#Write/Append : file will be created if did noit exist before
