@@ -1,0 +1,22 @@
+// Declare a record structure for the node of a tree
+// Declare an array of type node
+
+TYPE Node
+    DECLARE leftData : INTEGER
+    DECLARE Data : INTEGER
+    DECLARE rightData : INTEGER
+ENDTYPE
+
+DECLARE BinaryTree : ARRAY [0:9] OF Node
+
+// Initialising the array
+
+FOR i <- 0 TO 9
+    BinaryTree[i].leftData <- -1
+    BinaryTree[i].Data <- i + 1
+    BinaryTree[i].rightData <- -1
+NEXT i
+
+BinaryTree[9].Data <- -1
+
+
