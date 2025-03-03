@@ -1,0 +1,9 @@
+FUNCTION fact(num: INTEGER) RETURNS INTEGER
+    IF num = 0 THEN
+        ans <- 1
+    ELSE
+        ans <- num * fact(num -1)
+    ENDIF
+    RETURN ans
+ENDFUNCTION
+
