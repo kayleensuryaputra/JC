@@ -1,0 +1,75 @@
+TYPE StudentRec
+    DECLARE StdId: INTEGER
+    DECLARE Name: STRING
+ENDTYPE
+
+DECLARE NewStudent: StudentRec
+DECLARE StudentFile : STRING
+StudentFile <- "StudentInfo.dat" // assigning the file Name
+
+
+//Serial Files
+
+//store record inside the file
+OPENFILE StudentFile FOR APPEND
+
+OUTPUT "Enter Student ID: "
+INPUT NewStudent.StdId
+
+WHILE NewStudent.StdId <> -1
+    OUTPUT "Enter Student Name: "
+    INPUT NewStudent.Name    
+    PUTRECORD StudentFile, NewStudent
+    OUTPUT "Enter Student ID: " //inputting a new ID for student
+    INPUT NewStudent.StdId
+ENDWHILE
+
+CLOSEFILE StudentFile
+
+//reading the file
+OPENFILE StudentFile FOR READ
+WHILE NOT EOF(StudentFile) 
+    GETRECORD StudentFile, NewStudent
+    OUTPUT NewStudent.StdId, NewStudent.Name
+ENDWHILE
+CLOSEFILE StudentFile
+
+//Sequential Files
+DECLARE Student1: StudentRec
+DECLARE StudentTemp: StudentRec
+DECLARE StudentFile : STRING
+DECLARE RecAdded: BOOL
+StudentFile <- "StudentInfo.dat"
+StudentNewFile <- "StudentTemp.dat"
+
+OPENFILE StudentFile FOR READ //assume that StudentFile already has records
+OPENFILE StudentNewFile FOR WRITE //assume only want to add one record
+
+OUTPUT "Enter Student ID: "
+INPUT Student1.StdId
+OUTPUT "Enter Student Name: "
+INPUT Student1.Name    
+RecAdded <- FALSE
+
+WHILE RecAdded = FALSE //already added the new file
+    GERTRECORD StudentFile, StudentTemp
+    IF StudentTemp.StdId < Student1.StdId THEN
+        PUTRECORD StudentNewFile, StudentTemp
+    ELSE
+        PUTRECORD StudentNewFile, Student1 //if greater, copy the new record
+        RecAdded <- TRUE
+    ENDIF
+ENDWHILE
+
+WHILE NOT EOF(StudentFile) //copy rest of the file
+    GETRECORD StudentFile, StudentTemp
+    PUTRECORD StudentNewFile, StudentTemp
+ENDWHILE
+
+CLOSEFILE StudentFile
+CLOSEFILE StudentNewFile
+
+DELETE StudentFile //delete the old file
+RENAME StudentNewFile, StudentFile //rename with the old file name
+
+//reading the file
