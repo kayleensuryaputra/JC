@@ -8,7 +8,7 @@ DECLARE StudentFile : STRING
 StudentFile <- "StudentInfo.dat" // assigning the file Name
 
 
-//Serial Files
+//SERIAL FILES
 
 //store record inside the file
 OPENFILE StudentFile FOR APPEND
@@ -34,7 +34,7 @@ WHILE NOT EOF(StudentFile)
 ENDWHILE
 CLOSEFILE StudentFile
 
-//Sequential Files
+//SEQUENTIAL FILES
 DECLARE Student1: StudentRec
 DECLARE StudentTemp: StudentRec
 DECLARE StudentFile : STRING
@@ -51,7 +51,7 @@ OUTPUT "Enter Student Name: "
 INPUT Student1.Name    
 RecAdded <- FALSE
 
-WHILE RecAdded = FALSE //already added the new file
+WHILE RecAdded = FALSE AND NOT EOF(StudentFile) //already added the new file
     GERTRECORD StudentFile, StudentTemp
     IF StudentTemp.StdId < Student1.StdId THEN
         PUTRECORD StudentNewFile, StudentTemp
@@ -61,10 +61,14 @@ WHILE RecAdded = FALSE //already added the new file
     ENDIF
 ENDWHILE
 
-WHILE NOT EOF(StudentFile) //copy rest of the file
-    GETRECORD StudentFile, StudentTemp
-    PUTRECORD StudentNewFile, StudentTemp
-ENDWHILE
+IF EOF(StudentFile) THEN
+    PUTRECORD StudentNewFile, Student1
+ELSE
+    WHILE NOT EOF(StudentFile) //copy rest of the file
+        GETRECORD StudentFile, StudentTemp
+        PUTRECORD StudentNewFile, StudentTemp
+    ENDWHILE
+ENDIF
 
 CLOSEFILE StudentFile
 CLOSEFILE StudentNewFile
@@ -73,3 +77,39 @@ DELETE StudentFile //delete the old file
 RENAME StudentNewFile, StudentFile //rename with the old file name
 
 //reading the file
+
+
+//RANDOM FILES
+DECLARE NewStudent: StudentRec
+DECLARE StudentFile : STRING
+StudentFile <- "StudentInfo.dat"
+
+OPENFILE StudentFile FOR RANDOM
+
+OUTPUT "Enter student ID:"
+INPUT Student1.StdId
+OUTPUT "Enter student name: "
+INPUT Student1.Name
+
+//the two most important lines of code
+Address <- Hash(Student1.StdId) //Hash function just exists LOL
+SEEK(StudentFile,Address) //find the Address in the StudentFile
+
+PUTRECORD StudentFile,Student1
+
+CLOSEFILE StudentFile
+
+//IF the record already exist, it will be overwritten
+
+// Solution:
+1. Open Hash, the pointer will keep moving until a free space is found
+2. Close Hash, store the record in the overflow area
+
+//Finding a record
+OUTPUT "Enter student ID:"
+INPUT Student1.StdId
+
+Address <- Hash(Student1.StdId) 
+SEEK(StudentFile,Address) 
+
+GETRECORD StudentFile,Student1

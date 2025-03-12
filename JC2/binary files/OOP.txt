@@ -1,0 +1,58 @@
+
+
+CLASS Person
+    // dont use DECLARE; only PUBLIC or PRIVATE
+    PRIVATE Name: STRING
+    PRIVATE Age: INTEGER // good practise to keep them all PRIVATE
+
+    //constructor is always a procedure
+    PUBLIC PROCEDURE NEW(PName:STRING, PAge:INTEGER)
+    //name is NEW, there is no self here, just pass the arguments    
+        Name <- PName
+        Age <- PAge
+    ENDPROCEDURE 
+    
+    PUBLIC PROCEDURE SetName(PName:STRING)
+        Name <- PName
+    ENDPROCEDURE
+
+    PUBLIC PROCEDURE SetAge(PAge:INTEGER)
+        Age <- PAge
+    ENDPROCEDURE
+
+    PUBLIC FUCNTION GetName() RETURNS STRING
+        RETURN Name
+    ENDFUNCTION
+
+    PUBLIC FUCNTION GetAge() RETURNS INTEGER
+        RETURN Age
+    ENDFUNCTION
+ENDCLASS
+
+//how to inheritance 
+
+CLASS Student INHERITS Person
+    PRIVATE Grade:CHAR
+    PUBLIC PROCEDURE NEW(PName:STRING, PAge:INTEGER, PGrade:INTEGER)
+        SUPER.NEW(PName,PAge)
+        Grade <- PGrade
+    ENDPROCEDURE
+
+    PUBLIC PROCEDURE SetGrade(PGrade:STRING)
+        Grade <- PGrade
+    ENDPROCEDURE
+
+    PUBLIC FUNCTION GetGrade() RETURNS CHAR
+        RETURN Grade
+    ENDFUNCTION
+ENDCLASS
+
+Student1 <- NEW Student("Ian", '15', 'A')
+Student2 <- NEW Student("Emily", '15', 'A')
+
+OUTPUT Student1.GetName()
+OUTPUT Student1.GetAge()
+OUTPUT Student1.GetGrade()
+
+Student1.SetGrade('B')
+
