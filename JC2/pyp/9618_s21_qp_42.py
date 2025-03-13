@@ -35,11 +35,12 @@ outputNodes(linkedList, startPointer)
 
 #(d)(i)
 def addNode(linkedList, startPointer, emptyList):
-    index = startPointer
+    lastindex = startPointer
     newData = input(int("Input new data: "))
     linkedList[emptyList] = newData
+
     
-    
+    #tetyfdstyewfdsye
 
 
 # #QUESTION 2
