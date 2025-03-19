@@ -30,7 +30,7 @@ class Employee:
 #(d)
 AllEmployees = [Employee("", 0, "") for i in range (10)]
 
-file = open("EmployeeFile.txt",'r')
+file = open("C:/Users/Kayleen JC2T/Desktop/JC/JC2/pyp/checkpoint assesment/Employees.txt",'r')
 for i in range(10):
     AllEmployees[i].ChangeName(file.readline().strip()) #no need to pass self anym
     AllEmployees[i].ChangeEmployeeID(file.readline().strip())
@@ -42,22 +42,20 @@ SearchUser = input("Input Employee to be searched: ")
 for i in range (10):
     if SearchUser == AllEmployees[i].GetName():
         index = i
-    else:
-        i = i +1
 
 #(f)
 Mode = ""
 while Mode != 'P' and Mode != 'D':
     Mode = input("Input mode to be done: ")
     if Mode == 'P':
-        print(f"Name of Employee: {AllEmployees[index].GetName}")
-        print(f"ID of Employee: {AllEmployees[index].GetEmployeeID}")  
-        print(f"Department of Employee: {AllEmployees[index].GetDepartment}")
+        print(f"Name of Employee: {AllEmployees[index].GetName()}")
+        print(f"ID of Employee: {AllEmployees[index].GetEmployeeID()}")  
+        print(f"Department of Employee: {AllEmployees[index].GetDepartment()}")
     elif Mode == 'D':
         NewDepartment = input("Input a new department: ")
         AllEmployees[index].ChangeDepartment(NewDepartment)
         #(g)
-        print (f"{AllEmployees[index].GetName} ({AllEmployees[index].GetEmployeeID}) has changed department to {AllEmployees[index].GetDepartment}")
+        print (f"{AllEmployees[index].GetName()} ({AllEmployees[index].GetEmployeeID()}) has changed department to {AllEmployees[index].GetDepartment()}")
     else:
         print ("Invalid mode")
 
@@ -68,31 +66,38 @@ QueueData = [0 for i in range(8)]
 QueueFront = -1
 QueueRear = -1
 
+#not part of (a)
+QueueLength = 0 
+maxsize = len(QueueData)
+
 #(b)
 def allElements(QueueData, QueueFront, QueueRear):
-    for i in range (QueueFront, QueueRear):
-        print(QueueData[i])
-        i = i +1 
+    # #no need to print one by one
+    # for i in range (QueueFront, QueueRear):
+    #     print(QueueData[i])
+    #     i = i +1 
+    
+    #just print everything at once
+    print(QueueData)
+
     print (f"Queue Front is at {QueueFront}")
     print (f"Queue Rear is at {QueueRear}")
-    print(f"The number of elements are {i}")
+    print(f"The number of elements are {QueueLength}")
 
 #(c)
 def Enqueue(NewElement):
-    maxsize = len(QueueData)
-    global maxsize
-    if maxsize == i : #i is length of queue
+    if QueueLength == maxsize: #i is length of queue
         return False
     elif QueueRear == maxsize -1 :
         QueueRear = 0
     else:
         QueueRear = QueueRear + 1
     QueueData[QueueRear] = NewElement
-    i = i + 1
+    QueueLength = QueueLength + 1
     return True
 
 #(d)(i)
-for u in range (9):
+for i in range (9):
     NewElement = int(input("Input a new element: "))
     result = Enqueue(NewElement)
     if result == False:
@@ -100,30 +105,48 @@ for u in range (9):
     else:
         print("Element is added")
     
-for u in range(9):
-    print(QueueData[u])
-print(f"Front Pointer: {QueueFront}")
-print(f"Rear Pointer: {QueueRear}")
-print(f"The number of elements in the array {i}")
+allElements()
 
 #(d)(ii)
+#screenshot result
 
 #(e)(i)
 def Dequeue():
-    if i == 0:
+    temp = QueueData[QueueFront] #store the initiaal value temporarily
+    if QueueLength == 0:
         return -1
     else:
-        temp = QueueData[i]
-        QueueData[i] = None
-        i = i - 1
-        if QueueFront == maxsize
-        QueueFront = QueueFront + 1
-        ########
+        temp = QueueData[QueueFront]
+        QueueData[QueueFront] = None #not necessary to include, can just ignore
+        if QueueFront == maxsize:
+            QueueFront = 0 #circular queue
+        else:
+            QueueFront += 1
+            QueueLength -= 1
+        return temp
 
 #(e)(ii)
-#####
+#screenshot result
 
 #Q3
 
 #(a)
+myArray = [0 for i in range(10)]
 
+#(b)
+def ReadNumbers():
+    file = open("Numbers.txt",'r')
+    for i in range (10):
+         text = file.readline()
+         myArray[i] = int(text.strip())
+
+#(c)
+def OutputNumbers():
+    print(myArray)
+
+#(d)(i)
+ReadNumbers()
+OutputNumbers()
+
+#(d)(ii)
+#screenshot the result
