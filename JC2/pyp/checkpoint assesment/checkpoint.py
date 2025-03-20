@@ -149,4 +149,18 @@ ReadNumbers()
 OutputNumbers()
 
 #(d)(ii)
-#screenshot the result
+#screenshot the result 
+
+#(e)
+def InsertionSort():
+    for i in range (1,len(myArray)):
+        key = myArray[i]
+        j = i - 1
+        while (key < myArray[j]) and (j >= 0):
+            temp = myArray[j]
+            myArray[j] = myArray[j+1]
+            myArray[j+1] = temp
+            j = j-1
+    print(myArray)
+
+#(f)
