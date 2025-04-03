@@ -23,15 +23,15 @@ linkedList = [node(1,1),
 # #(c)(i)
 startPointer = 0
 emptyList = 5
-# def outputNodes(linkedList, startPointer):
-#     index = startPointer
-#     while linkedList[index].nextNode != -1:
-#         print(linkedList[index].data)
-#         index = linkedList[index].nextNode
-#     print(linkedList[index].data)
+def outputNodes(linkedList, startPointer):
+    index = startPointer
+    while linkedList[index].nextNode != -1:
+        print(linkedList[index].data)
+        index = linkedList[index].nextNode
+    print(linkedList[index].data)
 
 # #(c)(ii)
-# outputNodes(linkedList, startPointer)
+outputNodes(linkedList, startPointer)
 
 # #(d)(i)
 # def addNode(linkedList, startPointer, emptyList):
@@ -58,14 +58,14 @@ emptyList = 5
 # print(addNode(linkedList, startPointer, emptyList))
 # print (emptyList)
 
-# #(d)(ii)
-# outputNodes(linkedList, startPointer)
-# result = addNode(linkedList, startPointer, emptyList)
-# if result == False:
-#     print ("Sorry the list is full")
-# else:
-#     print ("Data has been added")
-# outputNodes(linkedList, startPointer)
+#(d)(ii)
+outputNodes(linkedList, startPointer)
+result = addNode(linkedList, startPointer, emptyList)
+if result == False:
+    print ("Sorry the list is full")
+else:
+    print ("Data has been added")
+outputNodes(linkedList, startPointer)
 
 
 #QUESTION 2
@@ -103,9 +103,62 @@ def bubbleSort():
 #(a)
 class TreasureChest:
     def __init__(self, question, answer, points):
-        self.__question  = question
-        self.__answer = answer
-        self.__points = points
+        self.__question  = question #of type string
+        self.answer = answer #of type intger
+        self.points = points #of type integer
+
+#(c)(i)
+    def getQuestion(self):
+        return self.__question
+
+#(c)(ii) 
+    def checkAnswer(self, SubmittedAns):
+        if SubmittedAns == self.answer:
+            return True
+        else:
+            return False
+#(c)(iii)
+    def getPoints(self,Attempts):
+        if Attempts == 1:
+            return self.points
+        elif Attempts == 2:
+            return self.points / 2
+        elif Attempts == 3 or Attempts == 4:
+            return self.points / 2
+        else:
+            return 0
     
-    def getQuestion():
-        
+    #not included in the question
+    def setQuestion(self,newQuestion):
+        self.getQuestion() = newQuestion
+    
+    def setAnswer(self, newAnswer):
+         self.answer = newAnswer
+    
+    def setPoints(self,newPoints):
+        self.points = newPoints
+
+#(b)
+def readData():
+    file = open("TreasureChest.txt", 'r')
+    #what does the question mean by "create an object type TreasureChest" for each question? 
+    # can slot into the array ga?
+    arrayTreasure = [TreasureChest("", 0, 0) for i in range (5)]
+
+    for i in range(5):
+        arrayTreasure[i].setQuestion(file.readline().strip()) 
+        arrayTreasure[i].setAnswer(file.readline().strip())
+        arrayTreasure[i].setPoints(file.readline().strip())
+
+    #exception handling?
+
+#(c)(iv)
+readData()
+question = int(input("Input a question number: "))
+print(arrayData[question].getQuestion())
+while result != True:
+    SubmittedAns = int(input("Input your answer: "))
+    result = arrayData[question].checkAnswer(SubmittedAns)
+    Attempts = Attempts + 1
+finalPoints = arrayData[question].getPoints(Attempts)
+print(finalPoints)
