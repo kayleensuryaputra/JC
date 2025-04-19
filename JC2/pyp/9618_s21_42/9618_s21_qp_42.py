@@ -1,12 +1,12 @@
 #QUESTION 1
 
-#(a)
+#(a) -my ans-[correct]
 class node:
     def __init__(self, data, nextNode):
         self.data = data #of type integer
         self.nextNode = nextNode #of type integer
 
-#(b)
+#(b) -my ans-[wrong - did not declare & initialise the pointers]
 
 linkedList = [node(0, -1) for i in range(10)] #declare and initialise 
 linkedList = [node(1,1),
@@ -20,18 +20,39 @@ linkedList = [node(1,1),
               node(0,9),
               node(0,-1)]
 
-# #(c)(i)
+#(b) -anskey- 
+linkedList = [node(0, -1) for i in range(10)] #declare and initialise 
+linkedList = [node(1,1),
+              node(5,4),
+              node(6,7),
+              node(7,-1),
+              node(2,2),
+              node(0,6),
+              node(0,8),
+              node(56,3),
+              node(0,9),
+              node(0,-1)]
+#initialise these as well
 startPointer = 0
 emptyList = 5
+
+#(c)(i) -my ans-[wrong - not optimised, slight mistake as well]
 def outputNodes(linkedList, startPointer):
-    index = startPointer
-    while linkedList[index].nextNode != -1:
-        print(linkedList[index].data)
+    index = startPointer 
+    while (linkedList[index].nextNode != -1):
+        print(linkedList[index].data) #missing str
         index = linkedList[index].nextNode
-    print(linkedList[index].data)
+    print(linkedList[index].data) #not required
+
+#(c)(i) -anskey- 
+def outputNodes(linkedList, currentPointer):
+    while(currentPointer != -1):
+        print(str(linkedList[currentPointer].data))
+        currentPointer = linkedList[currentPointer].nextNode 
 
 # #(c)(ii)
 outputNodes(linkedList, startPointer)
+    #screenshot the result
 
 # #(d)(i)
 # def addNode(linkedList, startPointer, emptyList):
