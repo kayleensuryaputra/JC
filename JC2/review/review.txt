@@ -1,0 +1,13 @@
+FILE HANDLING
+
+OPENFILE
+READLINE
+
+OPENFILE <file_name> FOR READ/WRITE/APPEND
+<file_variable> <- "File.txt"
+
+WHILE NOT EOF(<file_name>)
+    READFILE <file_variable>, <variable to store what is read>
+    WRITEFILE <file_variable>, <variable to transfer what to write>
+
+CLOSEFILE <file_name>
