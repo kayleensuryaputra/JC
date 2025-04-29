@@ -72,4 +72,17 @@ class Tablet(Device):
         print(f"Price: {self.__price}")
         print(f"Screen Size: {self.__screen_size}")
 
-    
+#(b)
+def ReadDevicedata():
+    try:
+        Device = [] #of type Device
+        file = open("Devices.txt",'r')
+        line = file.readline().strip()
+        while line != "":
+            value = line.split(',')
+            if value[0] == "Phone":
+                phone 
+    except:
+        print("File not found")
+
+
