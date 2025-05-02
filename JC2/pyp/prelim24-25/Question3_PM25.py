@@ -73,16 +73,38 @@ class Tablet(Device):
         print(f"Screen Size: {self.__screen_size}")
 
 #(b)
-def ReadDevicedata():
+def ReadDeviceData():
     try:
-        Device = [] #of type Device
+        DeviceArr = [] #of type Device
         file = open("Devices.txt",'r')
         line = file.readline().strip()
         while line != "":
             value = line.split(',')
+
             if value[0] == "Phone":
-                phone 
+                phone = Phone(value[0],value[1],value[2],value[3],value[4])
+                DeviceArr.append(phone)
+
+            if value[0] == "Laptop":
+                laptop = Laptop(value[0],value[1],value[2],value[3],value[4])
+                DeviceArr.append(laptop)
+            
+            if value[0] == "Tablet":
+                laptop = Laptop(value[0],value[1],value[2],value[3],value[4])
+                DeviceArr.append(laptop)
+            
+            line = file.readline().strip()
+        file.close()
+        return DeviceArr #dont bracket return
+                
     except:
         print("File not found")
 
+#(c)
+def PrintDevices(DeviceArr):
+    for element in DeviceArr: #element is element of arrray, not index
+        element.print_details()
+
+#(d)(i)
+Result = ReadDeviceData()
 
