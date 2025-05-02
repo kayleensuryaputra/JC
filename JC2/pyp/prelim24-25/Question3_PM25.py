@@ -107,4 +107,4 @@ def PrintDevices(DeviceArr):
 
 #(d)(i)
 Result = ReadDeviceData()
-
+PrintDevices(Result)
