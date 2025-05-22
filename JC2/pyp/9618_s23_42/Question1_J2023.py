@@ -33,5 +33,8 @@ def SortDescending():
 
 #(d)(i)
 SortDescending()
+for i in range (10):
+    print (Animals[i])
 
-
+#(d)(ii) - SS OUTPUT
+#incorrect???
