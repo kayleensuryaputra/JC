@@ -1,9 +1,9 @@
 #(a)
 class Queue:
     def __init__(self,QueueArray,Headpointer,Tailpointer):
-        self.__QueueArray = [0 for i in range(100)] #of type integer
-        self.__Headpointer = Headpointer #of type integer
-        self.__Tailpointer = Tailpointer #of type integer
+        self.QueueArray = [0 for i in range(100)] #of type integer
+        self.Headpointer = Headpointer #of type integer
+        self.Tailpointer = Tailpointer #of type integer
     # def GetHead(self):
     #     return self.__Headpointer
     
@@ -30,7 +30,7 @@ def ReturnAllData():
     if TheQueue.Headpointer == 100:
         return ""
     for i in range(TheQueue.Headpointer,100):
-        value = str(TheQueue.QueueArray[i]) #do i need to make a QueueArray getter?
+        value = str(TheQueue.QueueArray[i]) 
         return ReturnAllData(value+"")
 
 #(e)(i)

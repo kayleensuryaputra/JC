@@ -4,7 +4,7 @@ StackArray = [None] * 7 #NONE CANNOT IN STRING GOBLOK
 StackArray= [None for i in range (7)] #recommended
 base = 0
 top = -1
-fullstack = len(StackArray) - 1
+fullstack = len(StackArray) - 1 #index of last element
 print(StackArray)
 
 def pop():
